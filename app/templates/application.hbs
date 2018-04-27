@@ -1,5 +1,27 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="container">
+  {{input class="list" class="list-group-item" type="text" name="" value=test keyPress=(action 'add')}}
+  <!-- <button type="button" {{action 'add'}} class="btn btn-default" name="button">add</button> -->
+  <ul class="list-group" >
+    {{#each filteredList as |list|}}
+    <li  class="list-group-item list">
+      <div class="checkbox"  {{action 'completed' list}}>
+        {{#if list.todo }}
+         <i style="font-size: 38px;color: green" class="fa fa-check"></i>
+        {{/if}}
+      </div>
+       <!-- <button class="btn btn-default" type="button" {{action 'completed' list}} name="button">completed</button> -->
+         <span style="position:absolute;top: 30px;left: 70px; width:80%" class="{{if list.todo 'true'}}" >{{list.description}}</span>
+       <button class="btn btn-default" style="float:right;margin-top: 15px" type="button" {{action 'delete' list}} name="button">delete</button>
+     </li>
+    {{/each}}
 
+    {{#if lists}}
+    <li class="list-group-item list" style="text-align:center">
+      <button {{action 'setActiveButton' 'all'}} class="btn" type="button" name="button">All</button>
+      <button {{action 'setActiveButton' 'completed'}} class="btn" type="button" name="button">Completed</button>
+      <button {{action 'setActiveButton' 'active'}} class="btn" type="button" name="button">Active</button>
+     </li>
+    {{/if}}
+  </ul>
+</div>
 {{outlet}}

@@ -1,0 +1,16 @@
+.true {
+  text-decoration: line-through;
+}
+
+
+.list {
+  width: 50%;
+}
+
+.checkbox {
+  width: 40px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 50%;
+  display: inline-block;
+}
